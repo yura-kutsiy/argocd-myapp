@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: identity-core-api
+  labels:
+    app: identity-core-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: identity-core-api
+  template:
+    metadata:
+      labels:
+        app: identity-core-api
+    spec:
+      containers:
+      - name: identity-core-api
+        image: chandanrauniyar/identity-core-api:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 200m
+            memory: 200Mi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: identity-core-api-service
+spec:
+ type: NodePort
+ ports:
+ - port: 80
+   nodePort: 30001
+   name: http
+ selector:
+   app: identity-core-api

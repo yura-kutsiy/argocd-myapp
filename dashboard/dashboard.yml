@@ -6,7 +6,7 @@ spec:
   selector:
     app: dashboard
   ports:
-    - port: 90
+    - port: 9090
       targetPort: 80
   # type: NodePort
 ---

@@ -79,7 +79,7 @@ spec:
             - containerPort: 80
           volumeMounts:
           - name: test-html-vol
-            mountPath: /app/test.html
+            mountPath: /app
       volumes:
         - name: test-html-vol
           configMap:

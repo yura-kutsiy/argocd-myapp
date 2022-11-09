@@ -35,7 +35,7 @@ data:
        <head>
          <meta charset="utf-8">
          <title>Untitled</title>
-         <meta name="description" content="This is an example of a meta description.">
+         <meta name="description" content="This is an example of a meta description second file.">
          <link rel="stylesheet" type="text/css" href="theme.css">
 
          <!--[if lt IE 9]>

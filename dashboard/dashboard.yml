@@ -84,4 +84,4 @@ spec:
         - name: test-html-vol
           configMap:
             name: test-html
-      restartPolicy: Never
+      restartPolicy: Always

@@ -60,7 +60,7 @@ spec:
         - name: test-html-vol
           configMap:
             name: test-html
-        - name: test-html-vol
+        - name: test-html-vol-2
           configMap:
             name: test-html-2
       restartPolicy: Always

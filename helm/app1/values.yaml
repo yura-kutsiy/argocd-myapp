@@ -3,3 +3,7 @@ services:
   namespace: app
   image: yurasdockers/dashboard:0.2-clck
   replicas: 2
+- name: web-server
+  namespace: app
+  image: nginx:latest
+  replicas: 3

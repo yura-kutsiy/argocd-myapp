@@ -5,9 +5,9 @@ services:
   replicas: 2
   nodePort: 31000
   subDomain: local
-- name: web-server
+- name: nginx
   namespace: app
   image: nginx:latest
-  replicas: 3
+  replicas: 2
   nodePort: 31001
   subDomain: web-server

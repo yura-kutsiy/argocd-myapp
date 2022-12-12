@@ -1,0 +1,35 @@
+{{- range .Values.services }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.services.name }}
+  namespace: {{ .Values.services.namespace }}
+spec:
+  replicas: {{ .Values.services.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.services.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.services.name }}
+    spec:
+      containers:
+        - name: {{ .Values.services.name }}
+          image: {{ .Values.services.image }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      #     volumeMounts:
+      #     - name: test-html-vol
+      #       mountPath: /app
+      # volumes:
+      #   - name: test-html-vol
+      #     configMap:
+      #       name: test-html
+      #   - name: test-html-vol-2
+      #     configMap:
+      #       name: test-html-2
+      # restartPolicy: Always
+{{- end }}

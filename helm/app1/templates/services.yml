@@ -1,0 +1,17 @@
+{{- range .Values.services }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.services.name }}
+  naespace: {{ .Values.services.namespace }}
+spec:
+  selector:
+    app: {{ .Values.services.name }}
+  type: NodePort
+  ports:
+    - port: 9090
+      targetPort: 80
+      #range(default: 30000-32767)
+      nodePort: 31000
+{{- end}}

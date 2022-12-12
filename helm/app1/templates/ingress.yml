@@ -1,0 +1,23 @@
+{{- range .Values.services }}
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    # kubernetes.io/ingress.class: nginx
+  name: {{ .Values.services.name }}-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: local.dashboard.ai
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.services.name }}
+            port:
+              number: 80
+{{- end }}

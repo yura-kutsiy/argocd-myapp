@@ -1,0 +1,5 @@
+services:
+- name: dashboard
+  namespace: app
+  image: latest
+  replicas: 2

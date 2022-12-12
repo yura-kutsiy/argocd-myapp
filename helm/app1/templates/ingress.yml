@@ -1,4 +1,4 @@
-{{- range $n, $ingress := .Values.services }}
+{{- range $ingress := .Values.services }}
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: local.dashboard.ai
+  - host: {{ $ingress.subDomain }}.dashboard.ai
     http:
       paths:
       - path: /

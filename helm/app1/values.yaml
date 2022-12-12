@@ -3,7 +3,11 @@ services:
   namespace: app
   image: yurasdockers/dashboard:0.2-clck
   replicas: 2
+  nodePort: 31000
+  subDomain: local
 - name: web-server
   namespace: app
   image: nginx:latest
   replicas: 3
+  nodePort: 31001
+  subDomain: web-server

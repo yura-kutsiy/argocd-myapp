@@ -1,4 +1,4 @@
-{{- range $n, $service := .Values.services }}
+{{- range $service := .Values.services }}
 ---
 apiVersion: v1
 kind: Service
@@ -13,5 +13,5 @@ spec:
     - port: 9090
       targetPort: 80
       #range(default: 30000-32767)
-      nodePort: 31000
+      nodePort: {{ $service.nodePort }}
 {{- end}}

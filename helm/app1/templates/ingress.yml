@@ -1,4 +1,4 @@
-{{- range .Values.services }}
+{{- range $ingress := .Values.services }}
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -6,7 +6,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     # kubernetes.io/ingress.class: nginx
-  name: {{ .Values.services.name }}-ingress
+  name: {{ $ingress.name }}-ingress
 spec:
   ingressClassName: nginx
   rules:
@@ -17,7 +17,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.services.name }}
+            name: {{ $ingress.name }}
             port:
               number: 80
 {{- end }}

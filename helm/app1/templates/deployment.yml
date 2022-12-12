@@ -1,23 +1,23 @@
-{{- range .Values.services }}
+{{- range $app := .Values.services }}
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.services.name }}
-  namespace: {{ .Values.services.namespace }}
+  name: {{ $app.name }}
+  namespace: {{ $app.namespace }}
 spec:
-  replicas: {{ .Values.services.replicas }}
+  replicas: {{ $app.replicas }}
   selector:
     matchLabels:
-      app: {{ .Values.services.name }}
+      app: {{ $app.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.services.name }}
+        app: {{ $app.name }}
     spec:
       containers:
-        - name: {{ .Values.services.name }}
-          image: {{ .Values.services.image }}
+        - name: {{ $app.name }}
+          image: {{ $app.image }}
           imagePullPolicy: Always
           ports:
             - containerPort: 80

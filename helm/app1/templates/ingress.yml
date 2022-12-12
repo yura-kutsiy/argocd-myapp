@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: {{ $ingress.subDomain }}.dashboard.ai
+  - host: {{ $ingress.name }}.dashboard.ai
     http:
       paths:
       - path: /

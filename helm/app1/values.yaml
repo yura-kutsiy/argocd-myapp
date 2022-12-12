@@ -2,4 +2,4 @@ services:
 - name: dashboard
   namespace: app
   image: yurasdockers/dashboard:0.2-clck
-  replicas: 2
+  replicas: 1

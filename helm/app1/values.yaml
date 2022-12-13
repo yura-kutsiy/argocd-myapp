@@ -2,10 +2,15 @@ services:
 - name: dashboard
   namespace: app
   image: yurasdockers/dashboard:0.2-clck
-  replicas: 2
+  replicas: 1
   nodePort: 31000
-- name: nginx
+- name: web-servak
   namespace: app
-  image: httpd:latest
-  replicas: 5
+  image: nginx:latest
+  replicas: 1
   nodePort: 31001
+- name: tomcat
+  namespace: app
+  image: tomcat:latest
+  replicas: 1
+  nodePort: 31002

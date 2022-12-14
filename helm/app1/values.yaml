@@ -4,13 +4,22 @@ services:
   image: yurasdockers/dashboard:0.2-clck
   replicas: 1
   nodePort: 31000
+  configMap:
+    first: first
+    second: second
 - name: web-servak
   namespace: app
   image: nginx:latest
   replicas: 1
   nodePort: 31001
+  configMap:
+    apple: first
+    kiwi: second
 - name: tomcat
   namespace: app
   image: tomcat:latest
   replicas: 1
   nodePort: 31002
+  configMap:
+    stone: first
+    tree: second

@@ -3,6 +3,7 @@ global:
 services:
 - name: dashboard
   image: yurasdockers/dashboard:0.2-clck
+  pullPolicy: IfNotPresent
   replicas: 1
   nodePort: 31000
   configMap:

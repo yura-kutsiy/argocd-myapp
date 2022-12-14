@@ -25,7 +25,7 @@ spec:
       containers:
         - name: {{ $app.name }}
           image: {{ $app.image }}
-          imagePullPolicy: Always
+          imagePullPolicy: {{- if $app.pullPolicy }} {{ $app.pullPolicy }} {{- else }} Always {{- end }}
           ports:
             - containerPort: 80
       #     volumeMounts:

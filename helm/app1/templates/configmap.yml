@@ -1,10 +1,11 @@
+{{- $global := .Values.global -}}
 {{- range $app := .Values.services }}
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: "{{ $app.name }}"
-  namespace: "{{ $app.namespace }}"
+  namespace: "{{ $global.namespace }}"
 data:
   {{- range $key, $val := $app.configMap }}
   {{ $key }}: {{ $val | quote }}

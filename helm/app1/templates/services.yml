@@ -1,10 +1,11 @@
+{{- $global := .Values.global -}}
 {{- range $service := .Values.services }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: {{ $service.name }}
-  namespace: {{ $service.namespace }}
+  namespace: {{ $global.namespace }}
 spec:
   selector:
     app: {{ $service.name }}

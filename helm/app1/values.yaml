@@ -1,25 +1,24 @@
+global:
+  namespace: app
 services:
 - name: dashboard
-  namespace: app
   image: yurasdockers/dashboard:0.2-clck
   replicas: 1
   nodePort: 31000
   configMap:
-    first: first
-    second: second
+    first: first-value
+    second: second-value
 - name: web-servak
-  namespace: app
   image: nginx:latest
   replicas: 1
   nodePort: 31001
   configMap:
-    apple: first
-    kiwi: second
+    apple: first-value
+    kiwi: second-value
 - name: tomcat
-  namespace: app
   image: tomcat:latest
   replicas: 1
   nodePort: 31002
   configMap:
-    stone: first
-    tree: second
+    stone: first-value
+    tree: second-value

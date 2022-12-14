@@ -1,10 +1,11 @@
+{{- $global := .Values.global -}}
 {{- range $app := .Values.services }}
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ $app.name }}
-  namespace: {{ $app.namespace }}
+  namespace: {{ $global.namespace }}
 spec:
   replicas: {{ $app.replicas }}
   minReadySeconds: 10

@@ -4,7 +4,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ $app.name }}
+  name: {{- if or (eq $app.name "one") (eq $app.name "two") }} number-name {{- else }} {{ $app.name }} {{- end }}
   namespace: {{ $global.namespace }}
 spec:
   replicas: {{ $app.replicas }}
@@ -25,7 +25,8 @@ spec:
       containers:
         - name: {{ $app.name }}
           image: {{ $app.image }}
-          imagePullPolicy: {{- if $app.pullPolicy }} {{ $app.pullPolicy }} {{- else }} Always {{- end }}
+          #imagePullPolicy: {{- if $app.pullPolicy }} {{ $app.pullPolicy }} {{- else }} Always {{- end }} # "Always", "IfNotPresent", "Never"
+          imagePullPolicy: {{- if eq $app.pullPolicy "alw" }} Always {{- else }} IfNotPresent {{- end }}
           ports:
             - containerPort: 80
       #     volumeMounts:

@@ -1,9 +1,9 @@
 global:
   namespace: app
 services:
-- name: dashboard
+- name: one
   image: yurasdockers/dashboard:0.2-clck
-  pullPolicy: IfNotPresent
+  pullPolicy: alw
   replicas: 1
   nodePort: 31000
   configMap:

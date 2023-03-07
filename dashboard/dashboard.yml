@@ -13,27 +13,6 @@ spec:
       NodePort: 32100
 
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    # kubernetes.io/ingress.class: nginx
-  name: dashboard-ingress
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: local.dashboard.ai
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: dashboard
-            port:
-              number: 80
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:

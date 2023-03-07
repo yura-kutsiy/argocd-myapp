@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: dashboard
-          image: yurasdockers/dashboard:0.2-clck
+          image: yurasdockers/dashboard:0.3-link
           imagePullPolicy: Always
           ports:
             - containerPort: 80
